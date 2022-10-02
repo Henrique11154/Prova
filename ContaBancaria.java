@@ -15,6 +15,7 @@ public class ContaBancaria {
             System.out.println("Você não pode sacar esse valor.");
             return 0;
         }else{
+            this.saldo = t;
             return t;
         }
     }

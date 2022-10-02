@@ -6,35 +6,38 @@ public class Principal {
     Scanner e = new Scanner(System.in);
     boolean t = true;
 
-    System.out.println("Digite o tipo de conta: ");
-    String tipoDeConta = e.next();
-    while(t == false){
-        if (tipoDeConta == "Poupança" || tipoDeConta == "poupança" ||tipoDeConta == "poupanca"){
+    System.out.print("Digite o tipo de conta: ");
+    String tipoDeConta = e.nextLine();
+    while(t){
+        if (tipoDeConta.equals("poupanca") || tipoDeConta.equals("Poupanca")){
             System.out.println("Digite o número da conta");
             int numConta = e.nextInt();
+            e.nextLine();
             System.out.println("Digite o nome do cliente: ");
             String Cliente = e.nextLine();
             System.out.println("Digite o seu saldo:");
             float saldo = e.nextFloat();
             ContaPoupanca ce = new ContaPoupanca(Cliente, numConta, saldo);
-            System.out.println("1-Deseja Sacar?");
-            System.out.println("2-Deseja Depositar?");
-            System.out.println("3-[Ver conta]:");
-            int o = e.nextInt();
-            switch(o){
-                case 1: 
-                    System.out.println("Quanto você deseja sacar: ");
-                    Float dinheiroSacado = e.nextFloat();
-                    ce.sacar(dinheiroSacado);
-                    break;
-                case 2:
-                    System.out.println("Quanto você deseja depositar: ");
-                    float deposito = e.nextFloat();
-                    ce.depositar(deposito);
-                    break;
-                case 3:
-                    System.out.println(ce.getCliente() + ce.getNumConta() + ce.getSaldo());
-                    break;
+            for (int i = 0; i<1;) {
+                System.out.println("1-Deseja Sacar?");
+                System.out.println("2-Deseja Depositar?");
+                System.out.println("3-[Ver conta]:");
+                int o = e.nextInt();
+                switch(o){
+                    case 1: 
+                        System.out.println("Quanto você deseja sacar: ");
+                        Float dinheiroSacado = e.nextFloat();
+                        ce.sacar(dinheiroSacado);
+                        break;
+                    case 2:
+                        System.out.println("Quanto você deseja depositar: ");
+                        float deposito = e.nextFloat();
+                        ce.depositar(deposito);
+                        break;
+                    case 3:
+                        System.out.println(ce.getCliente() +' '+ ce.getNumConta()+' '+ ce.getSaldo());
+                        break;
+                }
             }
 
         }else{
@@ -61,7 +64,7 @@ public class Principal {
                     ce.depositar(deposito);
                     break;
                 case 3:
-                    System.out.println(ce.getCliente() + ce.getNumConta() + ce.getSaldo());
+                    System.out.println(ce.getCliente() +' '+ ce.getNumConta() +' '+ ce.getSaldo());
                     break;
                 }
             }
